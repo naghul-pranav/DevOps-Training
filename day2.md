@@ -1,6 +1,6 @@
 # Creating a Docker image using Jenkins
 
-## Creating a Docker image using Jenkins
+## Setting up Docker
 
 #### Step 1: Update the package list
 
@@ -11,7 +11,7 @@ sudo apt update
 ```
 ![1](https://github.com/user-attachments/assets/9cfb6e56-77db-4fc1-a90f-041cc51fa946)
 
-## Step 2: Install dependencies
+#### Step 2: Install dependencies
 
   - Install the required dependencies:
 
@@ -20,7 +20,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 ```
 ![2](https://github.com/user-attachments/assets/1e88fe1b-14b1-4a48-9c11-83aa80e0fdd8)
 
-## Step 3: Add Docker's official GPG key
+#### Step 3: Add Docker's official GPG key
 
   - Next, add Docker’s official GPG key to ensure the software you’re installing is verified:
 
@@ -29,7 +29,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 ![3](https://github.com/user-attachments/assets/bc0cc965-1563-45d6-8334-158452f5393c)
 
-## Step 4: Add the Docker repository
+#### Step 4: Add the Docker repository
 
   - Add Docker’s official repository to your system:
 ```bash
@@ -37,7 +37,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 ```
 ![4](https://github.com/user-attachments/assets/f52efde7-03a8-4bf8-a087-d38878a9f72c)
 
-## Step 5: Update the package list again
+#### Step 5: Update the package list again
 
   - After adding the Docker repository, update the package list again:
 ```bash
@@ -45,7 +45,7 @@ sudo apt update
 ```
 ![5](https://github.com/user-attachments/assets/c246d475-af5f-407c-b7d1-641b66ce3e2b)
 
-## Step 6: Install Docker
+#### Step 6: Install Docker
 
   - Now, install Docker:
 ```bash
@@ -54,7 +54,7 @@ sudo apt install docker-ce
 ![6](https://github.com/user-attachments/assets/1d51e9fe-55e5-410a-9e80-a1eb4c7fb1f7)
 ![7](https://github.com/user-attachments/assets/e591071f-383c-453b-8498-2b30207f9b63)
 
-## Step 7: Verify Docker installation
+#### Step 7: Verify Docker installation
 
   - To verify that Docker has been installed correctly, check its version:
 ```bash
@@ -64,7 +64,7 @@ docker --version
 
   - You should see Docker's version information if it's installed correctly.
 
-## Step 8: Run Docker without sudo (Optional)
+#### Step 8: Run Docker without sudo (Optional)
 
   - If you want to run Docker commands without needing to prepend sudo, you can add your user to the docker group:
 ```bash
@@ -78,7 +78,7 @@ newgrp docker
 ```
 ![10](https://github.com/user-attachments/assets/244e8032-5606-45f4-88d9-f608892336ab)
 
-## Step 9: Start and enable Docker (Optional)
+#### Step 9: Start and enable Docker (Optional)
 
   - If Docker isn't automatically started, you can start and enable it to run on system boot:
 ```bash
@@ -89,18 +89,9 @@ sudo systemctl enable docker
 
 That’s it! Docker should now be installed and running on your Ubuntu system.
 
-## Installing Docker
-  - Enter the following commands to inatall and verify installation of Docker
-```bash
-sudo apt update
-sudo apt install -y docker.io
-sudo systemctl enable docker --now
-docker
-```
-![image](https://github.com/user-attachments/assets/e0a899be-cb40-40cf-9231-e35ce45a6e4f)
-![image](https://github.com/user-attachments/assets/cbfdbef3-ad47-488b-89f5-0b450c27e3af)
+## Connect Jenkins with Docker
 
-## Download Docker plugins in Jenkins
+#### Download Docker plugins in Jenkins
  - Go to Jenkins `Dashboard` -> `Manage Jenkins` -> `Available Plugins` -> Search `Docker`
  - Select these plugins and Install
     - Docker
@@ -117,7 +108,7 @@ docker
 
 ![image](https://github.com/user-attachments/assets/023e655e-e8e7-4b3b-9b74-317f9f4484f2)
 
-## Add Jenkins to Docker group
+#### Add Jenkins to Docker group
  - Go to terminal and run these commands to add Jenkins to docker group
 ```bash
 sudo usermod -aG docker jenkins
@@ -126,7 +117,7 @@ sudo reboot
 ```
 - This will do its thing and reboot the system 
 
-## Setting up docker credentials
+#### Setting up docker credentials
  - Go to Jenkins > `Manage Jenkins` > `Credentials` > `System` > `Global Credentials (Unrestricted)` > `Add Credentials`
  -  Fill your Docker hub `username` , `password`, and in the `id` field enter `docker-seccred`
 
