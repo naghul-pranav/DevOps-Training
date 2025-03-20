@@ -58,6 +58,8 @@ sudo apt install docker-ce
 ```bash
 docker --version
 ```
+![8](https://github.com/user-attachments/assets/22199784-2fee-415a-bba3-9c130077fb6a)
+
   - You should see Docker's version information if it's installed correctly.
 
 ## Step 8: Run Docker without sudo (Optional)
@@ -66,10 +68,14 @@ docker --version
 ```bash
 sudo usermod -aG docker $USER
 ```
+![9](https://github.com/user-attachments/assets/4d4dea52-40e9-4faf-a736-f4875670d451)
+
   - You’ll need to log out and back in, or run:
 ```bash
 newgrp docker
 ```
+![10](https://github.com/user-attachments/assets/244e8032-5606-45f4-88d9-f608892336ab)
+
 ## Step 9: Start and enable Docker (Optional)
 
   - If Docker isn't automatically started, you can start and enable it to run on system boot:
@@ -77,6 +83,8 @@ newgrp docker
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
+![11](https://github.com/user-attachments/assets/9e3c5ca7-cd63-4924-8e21-aed5ea0a461b)
+
 That’s it! Docker should now be installed and running on your Ubuntu system.
 
 ## Installing Docker
