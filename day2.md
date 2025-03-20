@@ -98,7 +98,7 @@ That’s it! Docker should now be installed and running on your Ubuntu system.
     - Docker Commons
     - Docker Pipeline
     - docker-build-step
-    - CoudBees Docker Build and Publish
+    - CloudBees Docker Build and Publish
 
 ![image](https://github.com/user-attachments/assets/5eef535f-2b65-44ca-9ac2-2a19548477c5)
 ![image](https://github.com/user-attachments/assets/3f4bda54-a3dc-4811-a546-b027d83a679f)
@@ -130,13 +130,13 @@ sudo reboot
 
  - Go to Jenkins `Dashboard` > `Create a Job`
 
-!![18](https://github.com/user-attachments/assets/f778f00c-9c0d-42b1-b65d-9a9ca028c081)
+![Screenshot from 2025-03-20 11-59-10](https://github.com/user-attachments/assets/729e5ae9-e909-4b6a-b9ae-0725c709360c)
 
  - Enter a project name 
  - Select `pipeline`
  - Click `Ok`
 
-![image](https://github.com/user-attachments/assets/3b2b76ed-f099-4257-8669-cf269e4d10a3)
+![18](https://github.com/user-attachments/assets/345c1a5b-fde3-4c6a-bd7a-65134519a65f)
 
  - Go to `pipeline`
  - Paste this script below and change the credential wherever mentioned:
