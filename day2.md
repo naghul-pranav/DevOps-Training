@@ -93,6 +93,7 @@ That’s it! Docker should now be installed and running on your Ubuntu system.
 
 #### Download Docker plugins in Jenkins
  - Go to Jenkins `Dashboard` -> `Manage Jenkins` -> `Available Plugins` -> Search `Docker`
+  
  - Select these plugins and Install
     - Docker
     - Docker Commons
@@ -127,7 +128,7 @@ sudo reboot
 
 ## Create a new Docker repository
 
-  - Go to `hub.google.com` > `Create a Repository`
+  - Go to `hub.docker.com` > `Create a Repository`
     
 ![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/1ca62c42-ea4d-447f-b1a0-4d9353d2cdbf)
 
@@ -137,7 +138,6 @@ sudo reboot
 ## Create a new Github repository
 
   - Add the project file like `index.html` and `styles.css`
-
   - Add `Dockerfile` in the repository
     
 ![13](https://github.com/user-attachments/assets/89f2822a-a0ce-4293-8e37-c45fdcdecbe0)
@@ -156,14 +156,11 @@ sudo reboot
 
 ![Screenshot from 2025-03-20 11-59-10](https://github.com/user-attachments/assets/729e5ae9-e909-4b6a-b9ae-0725c709360c)
 
- - Enter a project name 
- - Select `pipeline`
- - Click `Ok`
+ - Enter a project name -> Select `pipeline` -> Click `Ok`
 
 ![18](https://github.com/user-attachments/assets/345c1a5b-fde3-4c6a-bd7a-65134519a65f)
 
- - Go to `pipeline`
- - Paste this script below and change the credential wherever mentioned:
+ - Go to `pipeline` -> Paste this script below and change the credential wherever mentioned:
 ```groovy
 pipeline {
     agent any
@@ -228,11 +225,12 @@ pipeline {
     }
 }
 ```
- - click `save`
- - click `build`
+ - click `save` -> click `build`
 
 ![19](https://github.com/user-attachments/assets/4f61c242-9ed1-4ff7-ab57-077f796f7d15)
 ![Screenshot from 2025-03-20 11-26-56](https://github.com/user-attachments/assets/6ca79a7d-ff1c-4289-8e9f-7c9334fb1e75)
+
+## Check the Docker Hub
 
  - Go to Docker Hub to see your image pushed there
 
