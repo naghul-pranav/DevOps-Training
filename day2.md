@@ -1,6 +1,6 @@
-<h1 style="font-size: 100px;">Creating a Docker image using Jenkins</h1>
+<p style="font-size: 100px;">Creating a Docker image using Jenkins</p>
 
-<h1 style="font-size: 40px;">Creating a Docker image using Jenkins</h1>
+<p style="font-size: 40px;">Creating a Docker image using Jenkins</p>
 
 ## Step 1: Update the package list
 
