@@ -1,4 +1,4 @@
-<h1 style="font-size: 70px;">Creating a Docker image using Jenkins</h1>
+<h1 style="font-size: 100px;">Creating a Docker image using Jenkins</h1>
 
 # Setting up Docker
 
