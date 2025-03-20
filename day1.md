@@ -2,9 +2,15 @@
 
 
 ## Installing JDK 17
+
+#### Check if you already have Java in your device
 ```bash
-sudo apt install -y openjdk-17-jdk
-sudo update-alternatives --config java
+java -version
+```
+
+#### If not installed, execute the following command
+```bash
+sudo apt install opensdk-17-sdk -y
 ```
 
 ![1](https://github.com/user-attachments/assets/75ed3b14-c3ee-41e1-b83f-681c6bafd641)
