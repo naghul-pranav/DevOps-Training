@@ -1,8 +1,8 @@
 # Creating a Docker image using Jenkins
 
-### Creating a Docker image using Jenkins
+## Creating a Docker image using Jenkins
 
-## Step 1: Update the package list
+#### Step 1: Update the package list
 
   - First, ensure your package list is up to date:
 
