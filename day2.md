@@ -7,6 +7,8 @@
 ```bash
 sudo apt update
 ```
+![1](https://github.com/user-attachments/assets/9cfb6e56-77db-4fc1-a90f-041cc51fa946)
+
 ## Step 2: Install dependencies
 
   - Install the required dependencies:
