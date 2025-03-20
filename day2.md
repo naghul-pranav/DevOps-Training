@@ -1,4 +1,4 @@
-# Creating a Docker image using Jenkins
+![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/de2c4f2d-4ab7-448c-af6e-abaac42541be)# Creating a Docker image using Jenkins
 
 ## Setting up Docker
 
@@ -125,6 +125,26 @@ sudo reboot
 ![17](https://github.com/user-attachments/assets/503d83a3-f1ad-49be-a5e0-d2c1b7c6dbc4)
 ![Screenshot from 2025-03-20 11-28-30](https://github.com/user-attachments/assets/44b293fd-49e4-4ed9-b40d-cbe2e39fa6f7)
 
+## Create a new Docker repository
+
+  - Go to `hub.google.com` > `Create a Repository`
+    ![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/1ca62c42-ea4d-447f-b1a0-4d9353d2cdbf)
+
+  - Enter a repository name
+  - Set visibility as `public` and click on `create`
+
+## Create a new Github repository
+
+  - Add the project file like `index.html` and `styles.css`
+    ![13](https://github.com/user-attachments/assets/89f2822a-a0ce-4293-8e37-c45fdcdecbe0)
+
+  - Add `Dockerfile` in the repository
+    ![14](https://github.com/user-attachments/assets/27fad6aa-8399-42cf-810f-6a0a01da7635)
+
+  - Add `build.sh` in the repository
+    ![15](https://github.com/user-attachments/assets/a5c790f6-2207-4e86-83f6-994fe48b2a91)
+
+  - Add `deploy.sh` in the repository
 
 ## Creating and building a pipeline
 
