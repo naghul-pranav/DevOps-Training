@@ -1,4 +1,4 @@
-![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/de2c4f2d-4ab7-448c-af6e-abaac42541be)# Creating a Docker image using Jenkins
+# Creating a Docker image using Jenkins
 
 ## Setting up Docker
 
