@@ -16,6 +16,8 @@ sudo apt update
 ```bash
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 ```
+![2](https://github.com/user-attachments/assets/1e88fe1b-14b1-4a48-9c11-83aa80e0fdd8)
+
 ## Step 3: Add Docker's official GPG key
 
   - Next, add Docker’s official GPG key to ensure the software you’re installing is verified:
@@ -23,24 +25,33 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
+![3](https://github.com/user-attachments/assets/bc0cc965-1563-45d6-8334-158452f5393c)
+
 ## Step 4: Add the Docker repository
 
   - Add Docker’s official repository to your system:
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
+![4](https://github.com/user-attachments/assets/f52efde7-03a8-4bf8-a087-d38878a9f72c)
+
 ## Step 5: Update the package list again
 
   - After adding the Docker repository, update the package list again:
 ```bash
 sudo apt update
 ```
+![5](https://github.com/user-attachments/assets/c246d475-af5f-407c-b7d1-641b66ce3e2b)
+
 ## Step 6: Install Docker
 
   - Now, install Docker:
 ```bash
 sudo apt install docker-ce
 ```
+![6](https://github.com/user-attachments/assets/1d51e9fe-55e5-410a-9e80-a1eb4c7fb1f7)
+![7](https://github.com/user-attachments/assets/e591071f-383c-453b-8498-2b30207f9b63)
+
 ## Step 7: Verify Docker installation
 
   - To verify that Docker has been installed correctly, check its version:
