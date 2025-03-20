@@ -208,8 +208,7 @@ pipeline {
  - click `build`
 
 ![19](https://github.com/user-attachments/assets/4f61c242-9ed1-4ff7-ab57-077f796f7d15)
-![Uploading Screenshot from 2025-03-20 11-26-56.png…]()
-
+![Screenshot from 2025-03-20 11-26-56](https://github.com/user-attachments/assets/6ca79a7d-ff1c-4289-8e9f-7c9334fb1e75)
 
  - Go to Docker Hub to see your image pushed there
 
