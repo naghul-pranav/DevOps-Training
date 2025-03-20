@@ -121,13 +121,16 @@ sudo reboot
  - Go to Jenkins > `Manage Jenkins` > `Credentials` > `System` > `Global Credentials (Unrestricted)` > `Add Credentials`
  -  Fill your Docker hub `username` , `password`, and in the `id` field enter `docker-seccred`
 
-![image](https://github.com/user-attachments/assets/c9e87ffe-6776-48ae-ab68-440eb5310626)
+![16](https://github.com/user-attachments/assets/d749299b-39c1-4379-a97d-51cb2d851e34)
+![17](https://github.com/user-attachments/assets/503d83a3-f1ad-49be-a5e0-d2c1b7c6dbc4)
+![Screenshot from 2025-03-20 11-28-30](https://github.com/user-attachments/assets/44b293fd-49e4-4ed9-b40d-cbe2e39fa6f7)
+
 
 ## Creating and building a pipeline
 
  - Go to Jenkins `Dashboard` > `Create a Job`
 
-![image](https://github.com/user-attachments/assets/cd3138ce-07b3-4070-97b9-0a8d76df4a36)
+!![18](https://github.com/user-attachments/assets/f778f00c-9c0d-42b1-b65d-9a9ca028c081)
 
  - Enter a project name 
  - Select `pipeline`
@@ -142,7 +145,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "sanjai4334/docker"          // Replace with your Docker Hub username and image name
+        IMAGE_NAME = "naghulpranavkk/project2"          // Replace with your Docker Hub username and image name
         TAG = "latest"
         CONTAINER_NAME = "my-container"
         PORT = "3001"
@@ -153,7 +156,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "Cloning GitHub repository..."
-                git 'https://github.com/sanjai4334/docker.git'  // Replace with your repo URL
+                git branch: 'main', url: 'https://github.com/naghul-pranav/devopsdemo.git'  // Replace with your repo URL
             }
         }
 
@@ -204,9 +207,12 @@ pipeline {
  - click `save`
  - click `build`
 
-![image](https://github.com/user-attachments/assets/7fad77f3-d083-414c-86fb-5ec0145a4b6d)
+![19](https://github.com/user-attachments/assets/4f61c242-9ed1-4ff7-ab57-077f796f7d15)
+![Uploading Screenshot from 2025-03-20 11-26-56.png…]()
+
 
  - Go to Docker Hub to see your image pushed there
 
-![image](https://github.com/user-attachments/assets/e07c5427-63f9-4b5e-b4c9-091cdb8cf5c1)
+![20](https://github.com/user-attachments/assets/73eff67b-0485-4197-8152-59f8c0e01085)
+
 
