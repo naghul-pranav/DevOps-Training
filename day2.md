@@ -1,4 +1,71 @@
-# Creating a docker image using 
+# Creating a docker image using Jenkins
+
+## Step 1: Update the package list
+
+  - First, ensure your package list is up to date:
+
+```bash
+sudo apt update
+```
+## Step 2: Install dependencies
+
+  - Install the required dependencies:
+
+```bash
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+## Step 3: Add Docker's official GPG key
+
+  - Next, add Docker’s official GPG key to ensure the software you’re installing is verified:
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+## Step 4: Add the Docker repository
+
+  - Add Docker’s official repository to your system:
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+## Step 5: Update the package list again
+
+  - After adding the Docker repository, update the package list again:
+```bash
+sudo apt update
+```
+## Step 6: Install Docker
+
+  - Now, install Docker:
+```bash
+sudo apt install docker-ce
+```
+## Step 7: Verify Docker installation
+
+  - To verify that Docker has been installed correctly, check its version:
+```bash
+docker --version
+```
+  - You should see Docker's version information if it's installed correctly.
+
+## Step 8: Run Docker without sudo (Optional)
+
+  - If you want to run Docker commands without needing to prepend sudo, you can add your user to the docker group:
+```bash
+sudo usermod -aG docker $USER
+```
+  - You’ll need to log out and back in, or run:
+```bash
+newgrp docker
+```
+## Step 9: Start and enable Docker (Optional)
+
+  - If Docker isn't automatically started, you can start and enable it to run on system boot:
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+That’s it! Docker should now be installed and running on your Ubuntu system.
+
 ## Installing Docker
   - Enter the following commands to inatall and verify installation of Docker
 ```bash
