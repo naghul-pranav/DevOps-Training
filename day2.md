@@ -119,7 +119,7 @@ sudo reboot
 
 #### Setting up docker credentials
  - Go to Jenkins > `Manage Jenkins` > `Credentials` > `System` > `Global Credentials (Unrestricted)` > `Add Credentials`
- -  Fill your Docker hub `username` , `password`, and in the `id` field enter `docker-seccred`
+ - Fill your Docker hub `username` , `password`, and in the `id` field enter `docker-seccred`
 
 ![16](https://github.com/user-attachments/assets/d749299b-39c1-4379-a97d-51cb2d851e34)
 ![17](https://github.com/user-attachments/assets/503d83a3-f1ad-49be-a5e0-d2c1b7c6dbc4)
@@ -128,7 +128,8 @@ sudo reboot
 ## Create a new Docker repository
 
   - Go to `hub.google.com` > `Create a Repository`
-    ![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/1ca62c42-ea4d-447f-b1a0-4d9353d2cdbf)
+    
+![Screenshot from 2025-03-20 12-06-59](https://github.com/user-attachments/assets/1ca62c42-ea4d-447f-b1a0-4d9353d2cdbf)
 
   - Enter a repository name
   - Set visibility as `public` and click on `create`
@@ -136,15 +137,18 @@ sudo reboot
 ## Create a new Github repository
 
   - Add the project file like `index.html` and `styles.css`
-    ![13](https://github.com/user-attachments/assets/89f2822a-a0ce-4293-8e37-c45fdcdecbe0)
 
   - Add `Dockerfile` in the repository
-    ![14](https://github.com/user-attachments/assets/27fad6aa-8399-42cf-810f-6a0a01da7635)
+    
+![13](https://github.com/user-attachments/assets/89f2822a-a0ce-4293-8e37-c45fdcdecbe0)
 
   - Add `build.sh` in the repository
-    ![15](https://github.com/user-attachments/assets/a5c790f6-2207-4e86-83f6-994fe48b2a91)
 
+![14](https://github.com/user-attachments/assets/27fad6aa-8399-42cf-810f-6a0a01da7635)
+    
   - Add `deploy.sh` in the repository
+
+![15](https://github.com/user-attachments/assets/a5c790f6-2207-4e86-83f6-994fe48b2a91)
 
 ## Creating and building a pipeline
 
