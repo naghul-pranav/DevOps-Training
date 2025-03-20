@@ -1,4 +1,6 @@
-# Creating a docker image using Jenkins
+<h1 style="font-size: 50px;">Creating a docker image using Jenkins</h1>
+
+# Setting up Docker
 
 ## Step 1: Update the package list
 
