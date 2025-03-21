@@ -74,6 +74,8 @@ sudo snap install kubectl --classic
 ```bash
 minikube start
 ```
+![start](https://github.com/user-attachments/assets/0ec0b437-70f9-452e-8fd4-6e161e507559)
+
 - Once Minikube finishes initialization, the output shows the confirmation message, and the shell prompt reappears.
 Minikube initialization complete.
 
@@ -83,25 +85,37 @@ Minikube initialization complete.
 ```bash
 minikube status
 ```
+![status](https://github.com/user-attachments/assets/df7bb9d8-b681-43de-a54c-41950c7f1db0)
+
 - Display a list of installed Minikube addons:
 ```bash
 minikube addons list
 ```
+![addons list](https://github.com/user-attachments/assets/6e80511e-55ee-4e09-aa51-3423a169fe74)
+
 - Enable an addon:
 ```bash
 minikube addons enable dashboard
 ```
+![dashboard](https://github.com/user-attachments/assets/067d1b3f-f2be-4cc3-987a-e9635c6a3f03)
+
 ```bash
 minikube addons enable ingress
 ```
+![ingress](https://github.com/user-attachments/assets/dfa522a7-847c-48ea-8bee-efbc792445ee)
+
 - Stop running the Minikube cluster:
 ```bash
 minikube stop
 ```
+![stop](https://github.com/user-attachments/assets/fabe7a09-ed5c-4e72-bda1-9395ce7bf712)
+
 - Delete the Minikube cluster:
 ```bash
 minikube delete
 ```
+![delete](https://github.com/user-attachments/assets/031db394-1840-4b55-92a9-55404d0a2485)
+
 
 #### Access Minikube Dashboard
 
@@ -109,6 +123,8 @@ minikube delete
 ```bash
 minikube dashboard
 ```
+![dashboard final](https://github.com/user-attachments/assets/54ecc507-46a3-4ce3-a077-eaa778bfc7ff)
+
 - Alternatively, to access the dashboard directly via the browser, obtain the dashboard’s IP address:
 ```bash
 minikube dashboard --url
