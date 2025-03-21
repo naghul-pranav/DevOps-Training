@@ -131,7 +131,7 @@ minikube dashboard --url
 ```
 ![Screenshot from 2025-03-21 12-48-49](https://github.com/user-attachments/assets/466b9f4f-3da0-4cab-b181-d5817c429b52)
 
-- In the browser the kuburnetes dashboard will become visible like below:
+- In the browser the Minikube dashboard will become visible like below:
 
 ![final](https://github.com/user-attachments/assets/40be204b-1003-4177-8ccf-586dbdbf8265)
 
