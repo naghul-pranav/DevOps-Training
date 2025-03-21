@@ -8,10 +8,14 @@
 ```bash
 sudo apt update
 ```
+![1](https://github.com/user-attachments/assets/cd2810c4-b710-44b8-be4a-2a75f8efe6e9)
+
 - Install `curl` and `apt-transport-https`
 ```bash
 sudo apt install curl apt-transport-https
 ```
+![2](https://github.com/user-attachments/assets/00f8e2c2-1e0c-4450-9bba-28a2b0bd96ee)
+
 
 #### Download Minikube Binary
 
@@ -19,6 +23,8 @@ sudo apt install curl apt-transport-https
 ```bash
 curl -O https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 ```
+![3 curl](https://github.com/user-attachments/assets/d8e898e3-7193-4b42-9bd3-ed224ce929c9)
+
 - Copy the downloaded file and store it in the /usr/local/bin/ directory:
 ```bash
 sudo cp minikube-linux-amd64 /usr/local/bin/minikube
@@ -34,6 +40,8 @@ sudo chmod 755 /usr/local/bin/minikube
 ```bash
 minikube version
 ```
+![4 version](https://github.com/user-attachments/assets/99b4b77f-234f-4723-a0a2-518aa9886b99)
+
 - The output displays the software version number.
 
 #### Install kubectl
