@@ -50,11 +50,15 @@ minikube version
 ```bash
 sudo snap install kubectl --classic
 ```
+![2](https://github.com/user-attachments/assets/247b6be6-e0f9-4690-9007-c5335d048148)
+
 - Alternatively, follow the steps below to download and install the kubectl binary directly from the maintainer:
   - Download kubectl with the following command:
   ```bash
   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
   ```
+  ![3](https://github.com/user-attachments/assets/3552d279-02a2-4354-b7b1-0909f03dcd2d)
+
   - Make the binary executable by typing:
   ```bash
   chmod +x ./kubectl
