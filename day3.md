@@ -1,6 +1,8 @@
-# Installing and setting up Kubernetes Minikube
+# Installing and setting up Kubernetes Minikube, and deploying Image from Docker Hub
 
-## Update system packages and Install dependencies
+## Install Minikube in Linux
+
+#### Install required packages
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y curl wget apt-transport-https conntrack socat
