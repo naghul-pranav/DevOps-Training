@@ -3,53 +3,101 @@
 ## Install Minikube in Linux
 
 #### Install required packages
-```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl wget apt-transport-https conntrack socat
-```
-![image](https://github.com/user-attachments/assets/0019f77d-60d9-44fb-9cd9-030f88256d20)
 
-## Install Docker, Kubectl and Minikube
-### Install Docker
+- Update the package information on the system by entering the following command:
 ```bash
-sudo apt install -y docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
-docker --version
+sudo apt update
 ```
-### Install Kubectl
+- Install `curl` and `apt-transport-https`
 ```bash
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-chmod +x kubectl
-sudo mv kubectl /usr/local/bin/
-kubectl version --client
+sudo apt install curl apt-transport-https
 ```
-### Install Minikube
+
+#### Download Minikube Binary
+
+- Use curl to download the latest Minikube binary:
 ```bash
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+curl -O https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+```
+- Copy the downloaded file and store it in the /usr/local/bin/ directory:
+```bash
+sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+```
+
+#### Enable Minikube Binary Execution
+
+- By default, binaries do not have the permission to execute. Give the execute permission to the Minikube binary using the chmod command:
+```bash
+sudo chmod 755 /usr/local/bin/minikube
+```
+- Verify the installation by checking the Minikube version:
+```bash
 minikube version
 ```
-![image](https://github.com/user-attachments/assets/f16981cd-567f-4641-bf39-caf64312b7ee)
-![image](https://github.com/user-attachments/assets/f98aef39-c1a1-4941-8e16-fdeede4d2170)
+- The output displays the software version number.
 
-### Fix Docker setup
+#### Install kubectl
+
+- Kubectl is the official command line tool for Kubernetes, which provides an interface for cluster deployment and management. Ubuntu has a kubectl snap package that can be installed by typing:
 ```bash
-sudo usermod -aG docker $USER
-reboot
+sudo snap install kubectl --classic
+```
+- Alternatively, follow the steps below to download and install the kubectl binary directly from the maintainer:
+  - Download kubectl with the following command:
+  ```bash
+  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  ```
+  - Make the binary executable by typing:
+  ```bash
+  chmod +x ./kubectl
+  ```
+  - Move the binary to the path with the following command:
+  ```bash
+  sudo mv ./kubectl /usr/local/bin/kubectl
+  ```
+
+#### Start Minikube
+
+- Start Minikube by running the command below:
+```bash
+minikube start
+```
+- Once Minikube finishes initialization, the output shows the confirmation message, and the shell prompt reappears.
+Minikube initialization complete.
+
+#### Common Minikube Commands
+
+- See the status of the Minikube container, the cluster, and the core Kubernetes components:
+```bash
+minikube status
+```
+- Display a list of installed Minikube addons:
+```bash
+minikube addons list
+```
+- Enable an addon:
+```bash
+minikube addons enable dashboard
+```
+```bash
+minikube addons enable ingress
+```
+- Stop running the Minikube cluster:
+```bash
+minikube stop
+```
+- Delete the Minikube cluster:
+```bash
+minikube delete
 ```
 
-### Verify Installation after reboot
-```bash
-docker run hello-world
-```
-![image](https://github.com/user-attachments/assets/7f55cdfd-b47d-4fec-93c5-59bebbeee6fb)
+#### Access Minikube Dashboard
 
-
-## Start and open Minikube
+- Run the command below to enable and access the Minikube dashboard:
 ```bash
-minikube start --driver=docker
 minikube dashboard
 ```
-![image](https://github.com/user-attachments/assets/70a3995c-436e-472d-81ea-90920026d8e0)
-![image](https://github.com/user-attachments/assets/8d49ff13-7975-4253-8983-37b241648eca)
+- Alternatively, to access the dashboard directly via the browser, obtain the dashboard’s IP address:
+```bash
+minikube dashboard --url
+```
