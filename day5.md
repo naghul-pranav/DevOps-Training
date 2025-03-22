@@ -29,7 +29,7 @@ wget https://archive.apache.org/dist/maven/maven-3/3.8.4/binaries/apache-maven-3
 ```
 ![3 wget](https://github.com/user-attachments/assets/c8cc3863-4cac-477b-aff8-586408077bac)
 
-- Extract and Move Maven to /bin
+- Extract and Move Maven to `/bin`
 ```bash
 sudo tar -xvzf apache-maven-3.8.4-bin.tar.gz -C /usr/local
 sudo ln -s /usr/local/apache-maven-3.8.4/bin/mvn /usr/bin/mvn
@@ -52,8 +52,8 @@ mvn -version
 
 ![fork repo](https://github.com/user-attachments/assets/a7618436-3cd0-4ebe-93a4-99e679187fe1)
 
-- Modify contents of build.sh and deploy.sh as follows
- - build.sh
+- Modify contents of `build.sh` and `deploy.sh` as follows
+ `build.sh`
  ```groovy
  #!/bin/bash
  
@@ -65,7 +65,7 @@ mvn -version
  docker build -t $IMAGE_NAME:$TAG .
  echo "Docker image $IMAGE_NAME:$TAG built successfully."
  ```
- - deploy.sh
+ `deploy.sh`
  ```groovy
  #!/bin/bash
  
@@ -83,23 +83,147 @@ mvn -version
  ```
 
 ## Configure Jenkins
- - In Jenkins go to `Manage jenkins` > `tools`
- ![manage jenkins](https://github.com/user-attachments/assets/514f7c23-f4db-402b-861a-d19b1ef2cf43)
 
- - Locate JDK section
- - Uncheck `Install Automatically`
- ![jenkins tools 1](https://github.com/user-attachments/assets/b641430f-4f3d-4ac5-bcb9-3e9b5b4ae832)
+- In Jenkins go to `Manage jenkins` > `tools`
 
- - Name `Java 17`
- - Go to terminal and enter the command and get the java 17 path:
+![manage jenkins](https://github.com/user-attachments/assets/514f7c23-f4db-402b-861a-d19b1ef2cf43)
+
+- Locate JDK section
+
+![jenkins tools 1](https://github.com/user-attachments/assets/b641430f-4f3d-4ac5-bcb9-3e9b5b4ae832)
+
+- Name `Java 17`
+- Go to terminal and enter the command and get the java 17 path:
 
 ```bash
 update-java-alternatives --list 
 ```
 ![update java alternatives list](https://github.com/user-attachments/assets/36e84017-a3f9-4da3-be63-3a1a80ac81b7)
 
- - Paste the java path in `JAVA_HOME`
+- Paste the java path in `JAVA_HOME`
 
 ![jenkins tools 2](https://github.com/user-attachments/assets/94617a19-2cb5-4fc9-a1e1-6ee99767367e)
 
- - 
+- Uncheck `Install sutomatically` and click on `Save`
+
+## Create new repository on docker named mvn
+
+![docker mnv](https://github.com/user-attachments/assets/f3e6abcc-2b15-43eb-b4a9-037a4c9935e1)
+
+## Create new pipeline on jenkins
+
+- Go to `localhost:8080/`
+
+![jenkins 1](https://github.com/user-attachments/assets/e118949e-c2dc-4db6-a1ef-1e4998de8272)
+
+- Click on `New item`
+
+![jenkins 2](https://github.com/user-attachments/assets/e937734c-0d8f-4e3a-a098-9ab9b4e282ae)
+
+- Enter an item name and select Pipeline, then click `Ok`
+
+![jenkins 3](https://github.com/user-attachments/assets/ae71d782-ea96-46c9-b0b0-79295f60b89a)
+
+- In the Pipeline script, paste the following:
+```groovy
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = "naghulpranavkk/mnv"
+        DOCKER_TAG = "latest"
+        DOCKER_CREDENTIALS_ID = "docker-seccred"
+        MAVEN_HOME = "/opt/maven"  // Updated Maven Path
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git url: 'https://github.com/naghul-pranav/MNV.git', branch: 'main'
+            }
+        }
+
+        stage('Build Application') {
+            steps {
+                script {
+                    catchError(buildResult: 'SUCCESS') {
+                        sh '${MAVEN_HOME}/bin/mvn clean package -DskipTests'
+                    }
+                }
+            }
+        }
+
+        stage('Run Maven Tests') {
+            steps {
+                script {
+                    catchError(buildResult: 'SUCCESS') {
+                        sh '${MAVEN_HOME}/bin/mvn test'
+                    }
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo "Building Docker image..."
+                sh 'chmod +x build.sh'
+                sh './build.sh'
+            }
+        }
+
+        stage('Login to Docker Hub') {
+            steps {
+                echo "Logging into Docker Hub..."
+                withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh 'docker login -u $DOCKER_USER -p $DOCKER_PASS'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                echo "Pushing Docker image to Docker Hub..."
+                sh '''
+                    docker tag $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_IMAGE:$DOCKER_TAG
+                    docker push $DOCKER_IMAGE:$DOCKER_TAG
+                '''
+            }
+        }
+
+        
+
+        stage('Deploy Docker Container') {
+            steps {
+                echo "deploying..."
+                sh 'chmod +x deploy.sh'
+                sh './deploy.sh'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Deployment Successful!"
+        }
+        failure {
+            echo "❌ Deployment Failed!"
+        }
+    }
+}
+```
+- Then click on `Save`
+
+## Build the Jenkins pipeline
+
+- Now click on `Build Now`
+
+- After build is successful, we can observe following pages in the jenkins webpage
+
+![final 1](https://github.com/user-attachments/assets/2c692a61-ac1c-44a8-8198-5309e578df0b)
+
+![final 2](https://github.com/user-attachments/assets/aa5c652d-125d-4916-a91b-05d462a6e210)
+
+![final 3](https://github.com/user-attachments/assets/17305fe2-18ca-41ba-bdbb-a93e5747d4e4)
+
+
