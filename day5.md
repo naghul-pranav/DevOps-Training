@@ -64,7 +64,7 @@ update-java-alternatives --list
 ```
 ![update java alternatives list](https://github.com/user-attachments/assets/36e84017-a3f9-4da3-be63-3a1a80ac81b7)
 
- - paste the java path in `JAVA_HOME`
+ - Paste the java path in `JAVA_HOME`
 
 ![image](https://github.com/user-attachments/assets/e71ecf62-8ba8-4cf5-8cd5-1ef1e1cb694e)
 
