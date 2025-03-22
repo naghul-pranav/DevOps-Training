@@ -145,34 +145,34 @@ EXPOSE 3001
 ```
 ![git dockerfile before](https://github.com/user-attachments/assets/ef105ef3-e573-4f79-b825-3e7c08ad5d1f)
 
-- Modify the port number from 3001 to 80 as follows:
+- Modify the port number from `3001` to `80` as follows:
 ```bash
 EXPOSE 80
 ```
 ![git dockerfile after](https://github.com/user-attachments/assets/1b233a8b-5113-44ae-a753-8f2f59a5b85e)
 
-- Then give 'Build now' in corresponding Jenkins pipeline:
+- Then click on `Build now` in corresponding Jenkins pipeline:
 
 ![jenkins build 8 after edit dockefile](https://github.com/user-attachments/assets/e82c0333-7c48-49c5-a3b3-a602e949c3f0)
 
-#### Create and navigate to 'docker' directory in Local Machine
+#### Create and navigate to `docker` directory in Local Machine
 
-- Create the repository 'docker'
+- Create the repository `docker`:
 ```bash
 mkdir docker
 ```
-- Make 'docker' the current working directory
+- Make `docker` the current working directory:
 ```bash
 cd docker
 ```
 
-#### Build Docker image inside the 'docker' directory
+#### Build Docker image inside the `docker` directory
 
-- Create a Dockerfile using the following command:
+- Create a `Dockerfile` using the following command:
 ```bash
 sudo nano Dockerfile
 ```
-- In the Dockerfile, write the following content:
+- In the `Dockerfile`, write the following content:
 ```groovy
 # Use an official Node.js runtime as a base image
 FROM node:18
@@ -193,29 +193,29 @@ CMD ["npm", "start"]
 ```
 ![sudo nano dockerfile](https://github.com/user-attachments/assets/bdc89a9b-0e87-401c-b7fd-268d9c51504d)
 
-- Install Node Package Manager (npm) in the terminal (Prerequisite step)
+- Install `Node Package Manager` (npm) in the terminal (Prerequisite step):
 ```bash
 sudo apt install npm
 ```
 ![sudo apt install npm](https://github.com/user-attachments/assets/23cda6af-7da0-4a42-ba08-e9c5f84052a1)
 
-- Execute the following command to initialize a json file
+- Execute the following command to initialize a `json` file:
 ```bash
 npm init -y
 ```
 ![npm init y](https://github.com/user-attachments/assets/ae68f3e2-b8aa-4338-8d2d-3bf176348e53)
 
-- Go to Dockerhub in browser and make sure the tag 'latest' exists
+- Go to Dockerhub in browser and make sure the tag `latest` exists
 
 ![docker hub tag latest](https://github.com/user-attachments/assets/9a5f1371-d990-4072-844b-d36ef1f6e01e)
 
-- Now navigate back to terminal and build the docker image
+- Now navigate back to terminal and build the docker image:
 ```bash
 docker build -t naghulpranavkk/docker:latest .
 ```
 ![docker build t](https://github.com/user-attachments/assets/c6708604-105f-4210-9dac-6da79fc1c427)
 
-#### Navigate out of 'docker' directory
+#### Navigate out of `docker` directory
 
 - Use the following command:
 ```bash
@@ -224,25 +224,25 @@ cd ..
 
 #### Start the minikube cluster
 
-- Create and start a local Kubernetes cluster (Prerequisite step)
+- Create and start a local Kubernetes cluster (Prerequisite step):
 ```bash
 minikube start
 ```
 ![1 minikube start](https://github.com/user-attachments/assets/b3973a13-0680-4148-8ced-0d1f08811475)
 
-- Check the current status of the Minikube Kubernetes cluster (Optionalstep)
+- Check the current status of the Minikube Kubernetes cluster (Optional step):
 ```bash
 minikube status
 ```
 ![2 minikube status](https://github.com/user-attachments/assets/c05f908b-d253-4148-8852-aeb7d8c801a3)
 
-#### Create and configue nginx-deployment.yaml file
+#### Create and configure `nginx-deployment.yaml` file
 
-- Create the nginx-deployment.yaml file
+- Create the `nginx-deployment.yaml` file:
 ```bash
 nano nginx-deployment.yaml
 ```
-- Configure the nginx-deployement.yaml file
+- Configure the `nginx-deployement.yaml` file:
 ```groovy
 apiVersion: apps/v1
 kind: Deployment
@@ -267,13 +267,13 @@ spec:
 ```
 ![Screenshot from 2025-03-22 09-49-39](https://github.com/user-attachments/assets/bdbe3d79-b1d8-4451-b37d-77925aa65056)
 
-#### Create and configue service.yaml file
+#### Create and configure `service.yaml` file
 
-- Create the nginx-deployment.yaml file
+- Create the `service.yaml` file:
 ```bash
 nano service.yaml
 ```
-- Configure the nginx-deployement.yaml file
+- Configure the `service.yaml` file:
 ```groovy
 apiVersion: v1
 kind: Service
@@ -294,13 +294,13 @@ spec:
 
 #### Create or update a Kubernetes resource and service resource
 
-- Execute following command to create or update a Kubernetes resource
+- Execute following command to create or update a Kubernetes resource:
 ```bash
 kubectl apply -f nginx-deployment.yaml
 ```
 ![5 kubectl apply nginx](https://github.com/user-attachments/assets/73f01202-a7a6-41eb-919a-79ead7866e9e)
 
-- Execute following command to create or update a Kubernetes service resource
+- Execute following command to create or update a Kubernetes service resource:
 ```bash
 kubectl apply -f service.yaml
 ```
@@ -308,13 +308,13 @@ kubectl apply -f service.yaml
 
 #### List the nodes and pods in the Kubernetes cluster
 
-- List all the nodes in the Kubernetes cluster
+- List all the nodes in the Kubernetes cluster:
 ```bash
 kubectl get nodes
 ```
 ![7 kubectl get nodes](https://github.com/user-attachments/assets/2e7a51ed-9661-45da-8d30-b78b880f7310)
 
-- List all the pods in the Kubernetes cluster
+- List all the pods in the Kubernetes cluster:
 ```bash
 kubectl get pods
 ```
@@ -322,17 +322,17 @@ kubectl get pods
 
 #### Final stage of deploying Docker image
 
-- Expose the minikube service in a browser
+- Expose the minikube service in a browser:
 ```bash
 minikube service my-app
 ```
 ![9 minikube service my-app](https://github.com/user-attachments/assets/e67abe06-12d6-4379-afe7-ef3200c10ecb)
 
-- The browser will display the project contained inside Docker image
+- The browser will display the project contained inside Docker image:
 
 ![11 final output](https://github.com/user-attachments/assets/91b2ed62-1e0d-4407-8029-a7e333f0821a)
 
-- Alternately we can run the following commands to open the minikube service in the browser
+- Alternatively, we can run the following commands to open the minikube service in the browser:
 ```bash
 minikube service my-app --url
 ```
