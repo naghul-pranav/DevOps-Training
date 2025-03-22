@@ -52,7 +52,7 @@ mvn -version
 
 ![fork repo](https://github.com/user-attachments/assets/a7618436-3cd0-4ebe-93a4-99e679187fe1)
 
-- Modify contents of `build.sh` and `deploy.sh` as follows:
+#### Modify contents of `build.sh` and `deploy.sh` as follows:
 
  `build.sh`
  ```groovy
