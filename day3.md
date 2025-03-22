@@ -155,7 +155,7 @@ EXPOSE 80
 
 ![jenkins build 8 after edit dockefile](https://github.com/user-attachments/assets/e82c0333-7c48-49c5-a3b3-a602e949c3f0)
 
-#### Create directory for Docker in Local Machine
+#### Create and navigate to 'docker' directory in Local Machine
 
 - Create the repository 'docker'
 ```bash
@@ -165,6 +165,9 @@ mkdir docker
 ```bash
 cd docker
 ```
+
+#### Build Docker image inside the 'docker' directory
+
 - Create a Dockerfile using the following command:
 ```bash
 sudo nano Dockerfile
@@ -190,7 +193,7 @@ CMD ["npm", "start"]
 ```
 ![sudo nano dockerfile](https://github.com/user-attachments/assets/bdc89a9b-0e87-401c-b7fd-268d9c51504d)
 
-- Install Node Package Manager (npm) in the terminal
+- Install Node Package Manager (npm) in the terminal (Prerequisite step)
 ```bash
 sudo apt install npm
 ```
@@ -211,3 +214,131 @@ npm init -y
 docker build -t naghulpranavkk/docker:latest .
 ```
 ![docker build t](https://github.com/user-attachments/assets/c6708604-105f-4210-9dac-6da79fc1c427)
+
+#### Navigate out of 'docker' directory
+
+- Use the following command:
+```bash
+cd ..
+```
+
+#### Start the minikube cluster
+
+- Create and start a local Kubernetes cluster (Prerequisite step)
+```bash
+minikube start
+```
+![1 minikube start](https://github.com/user-attachments/assets/b3973a13-0680-4148-8ced-0d1f08811475)
+
+- Check the current status of the Minikube Kubernetes cluster (Optionalstep)
+```bash
+minikube status
+```
+![2 minikube status](https://github.com/user-attachments/assets/c05f908b-d253-4148-8852-aeb7d8c801a3)
+
+#### Create and configue nginx-deployment.yaml file
+
+- Create the nginx-deployment.yaml file
+```bash
+nano nginx-deployment.yaml
+```
+- Configure the nginx-deployement.yaml file
+```groovy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: naghuptanavkk/docker:latest 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+```
+![Screenshot from 2025-03-22 09-49-39](https://github.com/user-attachments/assets/bdbe3d79-b1d8-4451-b37d-77925aa65056)
+
+#### Create and configue service.yaml file
+
+- Create the nginx-deployment.yaml file
+```bash
+nano service.yaml
+```
+- Configure the nginx-deployement.yaml file
+```groovy
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  namespace: default
+spec:
+  type: NodePort # Ensures external access via a specific port
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80 # Service port inside the cluster
+      targetPort: 80 # The container's port
+      nodePort: 30391 # Externally accessible port
+```
+![4 service yaml file](https://github.com/user-attachments/assets/aa39daa7-8151-4887-8edb-da039aa57997)
+
+#### Create or update a Kubernetes resource and service resource
+
+- Execute following command to create or update a Kubernetes resource
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+![5 kubectl apply nginx](https://github.com/user-attachments/assets/73f01202-a7a6-41eb-919a-79ead7866e9e)
+
+- Execute following command to create or update a Kubernetes service resource
+```bash
+kubectl apply -f service.yaml
+```
+![6 kubectl apply service](https://github.com/user-attachments/assets/a435b477-e879-44c5-8be4-2bcb2bf086da)
+
+#### List the nodes and pods in the Kubernetes cluster
+
+- List all the nodes in the Kubernetes cluster
+```bash
+kubectl get nodes
+```
+![7 kubectl get nodes](https://github.com/user-attachments/assets/2e7a51ed-9661-45da-8d30-b78b880f7310)
+
+- List all the pods in the Kubernetes cluster
+```bash
+kubectl get pods
+```
+![8 kubectl get pods](https://github.com/user-attachments/assets/da37e903-6b6e-4577-9b54-60fa1c212ea4)
+
+#### Final stage of deploying Docker image
+
+- Expose the minikube service in a browser
+```bash
+minikube service my-app
+```
+![9 minikube service my-app](https://github.com/user-attachments/assets/e67abe06-12d6-4379-afe7-ef3200c10ecb)
+
+- The browser will display the project contained inside Docker image
+
+![11 final output](https://github.com/user-attachments/assets/91b2ed62-1e0d-4407-8029-a7e333f0821a)
+
+- Alternately we can run the following commands to open the minikube service in the browser
+```bash
+minikube service my-app --url
+```
+![10 minikube service my-app url](https://github.com/user-attachments/assets/78c8f6d1-d4f4-4656-a55c-64adf68458e8)
+
+```bash
+curl  http://192.168.49.2:30391
+```
+
