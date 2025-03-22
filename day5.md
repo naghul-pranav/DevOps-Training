@@ -42,13 +42,11 @@ echo "export M2_HOME=/opt/maven" >> ~/.bashrc
 echo "export PATH=\$M2_HOME/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 ```
-![5 version](https://github.com/user-attachments/assets/f90e6dc8-9a8f-4896-ae6a-bb55c22ec18e)
-
-
 - Verify Maven Installation
 ```bash
 mvn -version
 ```
+![5 version](https://github.com/user-attachments/assets/866cf520-ad30-47c8-afee-14505d87a969)
 
 ## Fork the repo on github
 
