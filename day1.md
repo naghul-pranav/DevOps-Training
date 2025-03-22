@@ -57,7 +57,9 @@ sudo apt-get install jenkins
 ![8 unlock jenkins](https://github.com/user-attachments/assets/d7deb17a-33d1-48ff-97e4-cc3db3a317a8)
 
 - Now go back to terminal and execute the below command to get admin password
-
+```bash
+sudo more /var/lib/jenkins/secrets/initialAdminPassword
+```
 ![9 sudo more admin pass](https://github.com/user-attachments/assets/e2991ff0-71ad-4943-9fc7-287177a53156)
 
 - Now again come back to browser and fill the admin password
@@ -72,20 +74,15 @@ sudo apt-get install jenkins
 
 ![12 getting started](https://github.com/user-attachments/assets/dcc3b613-59a3-45bd-8236-7066940901df)
 
-- The plugins will eb installed one by one and you'll be redirected to the next page click `Start Jenkins`
-
-![13 new item project](https://github.com/user-attachments/assets/5fed7699-da67-4693-a03e-d34bc1c293e8)
+- The plugins will be installed one by one and you'll be redirected to the next page click `Start Jenkins`
 
 - Fill in your details and create user id and password then click `save and continue`
 > [!NOTE]  
 > Remember this user id and password. This will overwrite the `Initial Password` generated, and will be required to login everytime you restart Jenkins.
 
-![1](https://github.com/user-attachments/assets/41acee70-682f-4f54-912a-e9756a677091)
-
- - Leave the default Jenkins URL then click `Save and Finish`
-
 ![1](https://github.com/user-attachments/assets/7dc3ae3c-85f4-4820-80a4-9b455affc3ae)
 
+- Leave the default Jenkins URL then click `Save and Finish`
 
 ## Setting up a Nginx freestyle project in Jenkins
  - In Jenkins home page click on `create a job`
