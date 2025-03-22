@@ -1,23 +1,27 @@
-# Installing Jenkins in Linux and creating a freestyle Nginx project
-
+# Installing Jenkins in Linux and creating a freestyle nginx project
 
 ## Installing JDK 17
+
+#### Update the package list
+
+  - First, ensure your package list is up to date:
+
+```bash
+sudo apt update
+```
+![1 sudo apt update](https://github.com/user-attachments/assets/1daaa9a1-842c-49a4-a2be-75b28bb69082)
 
 #### Check if you already have Java in your device
 ```bash
 java -version
 ```
+![2 java --version](https://github.com/user-attachments/assets/f8f1025b-9ff0-457a-8c47-14547bbc4d26)
 
 #### If not installed, execute the following command
 ```bash
 sudo apt install opensdk-17-sdk -y
 ```
-
-![1](https://github.com/user-attachments/assets/75ed3b14-c3ee-41e1-b83f-681c6bafd641)
-
- - After this you'll be prompted to select a java version select the index with java-17
-
-![1](https://github.com/user-attachments/assets/5ca00311-ea4c-44eb-b27c-a4e793ac5752)
+![3 sudo apt install openjdk-17-jdk -y](https://github.com/user-attachments/assets/81180b19-b048-4dd6-894b-11b12ff9be7b)
 
 ## Installing Jenkins
 ```bash
