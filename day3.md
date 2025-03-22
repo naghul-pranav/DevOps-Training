@@ -135,4 +135,53 @@ minikube dashboard --url
 
 ![final](https://github.com/user-attachments/assets/40be204b-1003-4177-8ccf-586dbdbf8265)
 
+## Deploy Image from Docker Hub
 
+#### Change file content of Dockerfile in github repository of day2 task
+
+- Previous file content looks like below:
+```bash
+EXPOSE 3001
+```
+![git dockerfile before](https://github.com/user-attachments/assets/ef105ef3-e573-4f79-b825-3e7c08ad5d1f)
+
+- Modify the port address from 3001 to 80 as follows:
+```bash
+EXPOSE 80
+```
+![git dockerfile after](https://github.com/user-attachments/assets/1b233a8b-5113-44ae-a753-8f2f59a5b85e)
+
+- Then give 'Build now' in corresponding Jenkins pipeline:
+
+![jenkins build 8 after edit dockefile](https://github.com/user-attachments/assets/e82c0333-7c48-49c5-a3b3-a602e949c3f0)
+
+#### Create directory for Docker in Local Machine
+
+- Create the repository 'docker'
+```bash
+mkdir docker
+```
+- Make 'docker' the current working directory
+```bash
+cd docker
+```
+- Install Node Package Manager (npm) in the terminal
+```bash
+sudo apt install npm
+```
+![sudo apt install npm](https://github.com/user-attachments/assets/23cda6af-7da0-4a42-ba08-e9c5f84052a1)
+
+- Execute the following command to initialize a json file
+```bash
+npm init -y
+```
+![npm init y](https://github.com/user-attachments/assets/ae68f3e2-b8aa-4338-8d2d-3bf176348e53)
+
+- Go to Dockerhub in browser and make sure the tag 'latest' exists
+![docker hub tag latest](https://github.com/user-attachments/assets/9a5f1371-d990-4072-844b-d36ef1f6e01e)
+
+- Now navigate back to terminal and build the docker image
+```bash
+docker build -t naghulpranavkk/docker:latest .
+```
+![docker build t](https://github.com/user-attachments/assets/c6708604-105f-4210-9dac-6da79fc1c427)
