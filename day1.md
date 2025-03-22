@@ -24,17 +24,33 @@ sudo apt install opensdk-17-sdk -y
 ![3 sudo apt install openjdk-17-jdk -y](https://github.com/user-attachments/assets/81180b19-b048-4dd6-894b-11b12ff9be7b)
 
 ## Installing Jenkins
+
+#### Execute the following commands in your terminal
+
 ```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+![4 sudo wget O](https://github.com/user-attachments/assets/71a1f29e-cf12-4851-90b4-fd33015335ea)
+
+```bash
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+![5 echo deb](https://github.com/user-attachments/assets/2fb7d860-dd13-4e76-803f-5cd910d38010)
+
+```bash
 sudo apt-get update
 sudo apt-get install jenkins
 ```
+![6 sudo get-apt update](https://github.com/user-attachments/assets/a9acc0aa-0c98-459d-a9f3-af1965284e1e)
 
-![1](https://github.com/user-attachments/assets/467fc754-01ee-490e-a71e-e14b916494de)
+```bash
+sudo apt-get install jenkins
+```
+![7 sudo install jenkins](https://github.com/user-attachments/assets/19b473d7-5688-48be-9569-9a0bcaaa7af1)
+
 
 ## Starting Jenkins
 ```bash
