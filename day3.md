@@ -145,7 +145,7 @@ EXPOSE 3001
 ```
 ![git dockerfile before](https://github.com/user-attachments/assets/ef105ef3-e573-4f79-b825-3e7c08ad5d1f)
 
-- Modify the port address from 3001 to 80 as follows:
+- Modify the port number from 3001 to 80 as follows:
 ```bash
 EXPOSE 80
 ```
@@ -165,6 +165,31 @@ mkdir docker
 ```bash
 cd docker
 ```
+- Create a Dockerfile using the following command:
+```bash
+sudo nano Dockerfile
+```
+- In the Dockerfile, write the following content:
+```groovy
+# Use an official Node.js runtime as a base image
+FROM node:18
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY package.json ./
+RUN npm install
+
+# Copy the rest of the application
+COPY . .
+
+# Expose port 3000 and start the app
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+![sudo nano dockerfile](https://github.com/user-attachments/assets/bdc89a9b-0e87-401c-b7fd-268d9c51504d)
+
 - Install Node Package Manager (npm) in the terminal
 ```bash
 sudo apt install npm
@@ -178,6 +203,7 @@ npm init -y
 ![npm init y](https://github.com/user-attachments/assets/ae68f3e2-b8aa-4338-8d2d-3bf176348e53)
 
 - Go to Dockerhub in browser and make sure the tag 'latest' exists
+
 ![docker hub tag latest](https://github.com/user-attachments/assets/9a5f1371-d990-4072-844b-d36ef1f6e01e)
 
 - Now navigate back to terminal and build the docker image
