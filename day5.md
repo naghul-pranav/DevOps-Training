@@ -29,10 +29,10 @@ wget https://archive.apache.org/dist/maven/maven-3/3.8.4/binaries/apache-maven-3
 ```
 ![3 wget](https://github.com/user-attachments/assets/c8cc3863-4cac-477b-aff8-586408077bac)
 
-- Extract and Move Maven to `/bin`
+- Extract and Move Maven to `/opt`
 ```bash
-sudo tar -xvzf apache-maven-3.8.4-bin.tar.gz -C /usr/local
-sudo ln -s /usr/local/apache-maven-3.8.4/bin/mvn /usr/bin/mvn
+sudo tar -xvzf apache-maven-3.9.6-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-maven-3.9.6 /opt/maven
 ```
 ![4 sudo tar](https://github.com/user-attachments/assets/2407f31e-24b0-4d2a-8a5c-2a49def99857)
 
@@ -121,7 +121,7 @@ update-java-alternatives --list
 
 ![jenkins 2](https://github.com/user-attachments/assets/e937734c-0d8f-4e3a-a098-9ab9b4e282ae)
 
-- Enter an item name and select Pipeline, then click `Ok`
+- Enter an item name and select `Pipeline`, then click `Ok`
 
 ![jenkins 3](https://github.com/user-attachments/assets/ae71d782-ea96-46c9-b0b0-79295f60b89a)
 
