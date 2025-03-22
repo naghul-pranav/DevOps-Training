@@ -42,7 +42,6 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
 ```bash
 sudo apt-get update
-sudo apt-get install jenkins
 ```
 ![6 sudo get-apt update](https://github.com/user-attachments/assets/a9acc0aa-0c98-459d-a9f3-af1965284e1e)
 
@@ -51,36 +50,33 @@ sudo apt-get install jenkins
 ```
 ![7 sudo install jenkins](https://github.com/user-attachments/assets/19b473d7-5688-48be-9569-9a0bcaaa7af1)
 
-
-## Starting Jenkins
-```bash
-sudo systemctl status jenkins
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
-sudo systemctl status jenkins
-```
- - Copy the password provided in this step
-
-![1](https://github.com/user-attachments/assets/8f7d48c8-66ac-4d48-b0ef-e420dcbc3b13)
-
 ## Jenkins Initial Setup
- - Open a browser and go to `localhost:8080` and paste in the password
 
-![1](https://github.com/user-attachments/assets/23cefbc4-25ca-4ddc-a59c-3c958275764c)
+- Open a browser and go to `localhost:8080` and we will see the below page
 
- - Click on `continue`
+![8 unlock jenkins](https://github.com/user-attachments/assets/d7deb17a-33d1-48ff-97e4-cc3db3a317a8)
 
-![1](https://github.com/user-attachments/assets/ea2b865f-689d-4d00-801c-8e4847a20adb)
+- Now go back to terminal and execute the below command to get admin password
 
- - Click on `Install Suggested Plugins`
+![9 sudo more admin pass](https://github.com/user-attachments/assets/e2991ff0-71ad-4943-9fc7-287177a53156)
 
-![1](https://github.com/user-attachments/assets/4fe685f6-5245-4075-ad4c-a87e981c25ca)
+- Now again come back to browser and fill the admin password
 
- - The plugins will eb installed one by one and you'll be redirected to the next page click `Start Jenkins`
+![10 unlock jenkins](https://github.com/user-attachments/assets/52f3dcbb-0ce6-4426-95dd-bac2c3d1721d)
 
-![1](https://github.com/user-attachments/assets/ebd355c3-034e-4fe8-af74-d780d15bf8d7)
+- Click on `continue`
 
- - Fill in your details and create user id and password then click `save and continue`
+![11 customize jenkins](https://github.com/user-attachments/assets/2e15ce02-6d67-453e-9723-160ad15456ce)
+
+- Click on `Install Suggested Plugins`
+
+![12 getting started](https://github.com/user-attachments/assets/dcc3b613-59a3-45bd-8236-7066940901df)
+
+- The plugins will eb installed one by one and you'll be redirected to the next page click `Start Jenkins`
+
+![13 new item project](https://github.com/user-attachments/assets/5fed7699-da67-4693-a03e-d34bc1c293e8)
+
+- Fill in your details and create user id and password then click `save and continue`
 > [!NOTE]  
 > Remember this user id and password. This will overwrite the `Initial Password` generated, and will be required to login everytime you restart Jenkins.
 
